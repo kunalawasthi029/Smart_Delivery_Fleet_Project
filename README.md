@@ -100,5 +100,4 @@ mongo bd project/
 - Deploy a lightweight API (FastAPI/Flask) that serves real‑time delay predictions.
 - Automate nightly data refresh using a cron job or the `/schedule` slash command.
 
----
-*This repository is intended for educational purposes and demonstrates how MongoDB and machine learning can be combined for logistics analytics.*
+
