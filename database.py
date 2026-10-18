@@ -4,6 +4,7 @@ and ingestion of the real e-commerce logistics dataset.
 '''
 
 import csv
+import os
 import random
 from pathlib import Path
 from typing import List, Dict
@@ -18,8 +19,10 @@ from pymongo.database import Database
 # MongoDB Connection
 # ---------------------------------------------------------------------------
 
-def get_client(uri: str = "mongodb://localhost:27017") -> MongoClient:
-    """Return a MongoClient. In production, use TLS and env-based credentials."""
+def get_client(uri: str | None = None) -> MongoClient:
+    """Return a MongoClient. Uses MONGO_URI env var if available."""
+    if uri is None:
+        uri = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
     return MongoClient(uri, serverSelectionTimeoutMS=5000)
 
 

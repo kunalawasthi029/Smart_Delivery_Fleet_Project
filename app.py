@@ -2,6 +2,7 @@
 Flask API + dashboard for the ecommerce logistics MongoDB dataset.
 '''
 
+import os
 from datetime import datetime
 from pathlib import Path
 
@@ -44,7 +45,8 @@ MODEL_STATE = {
 
 
 def get_db():
-    client = MongoClient("mongodb://localhost:27017", serverSelectionTimeoutMS=4000)
+    uri = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
+    client = MongoClient(uri, serverSelectionTimeoutMS=4000)
     return client["delivery_fleet"]
 
 

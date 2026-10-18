@@ -1,0 +1,6 @@
+flask==3.1.1
+pymongo[srv]==4.12.1
+pandas==2.2.3
+scikit-learn==1.6.1
+gunicorn==23.0.0
+python-dotenv==1.1.0
