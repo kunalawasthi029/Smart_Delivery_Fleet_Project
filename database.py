@@ -7,7 +7,7 @@ import csv
 import os
 import random
 from pathlib import Path
-from typing import List, Dict
+from typing import List, Dict, Optional
 from datetime import datetime, timedelta
 
 from pymongo import MongoClient
@@ -19,7 +19,7 @@ from pymongo.database import Database
 # MongoDB Connection
 # ---------------------------------------------------------------------------
 
-def get_client(uri: str | None = None) -> MongoClient:
+def get_client(uri: Optional[str] = None) -> MongoClient:
     """Return a MongoClient. Uses MONGO_URI env var if available."""
     if uri is None:
         uri = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
